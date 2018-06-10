@@ -1,12 +1,12 @@
 {
-  "presets": ["react", ["env", { "modules": false }]],
+  "presets": [["env", { "modules": false }], "react"],
   "plugins": ["transform-object-rest-spread", "transform-class-properties"],
   "env": {
     "test": {
-      "presets": ["react", "env"]
+      "presets": ["env", "react"]
     },
     "production": {
-      "presets": ["minify" ,["env", {"modules: false"}], "react"]
+      "presets": ["minify" ,["env", {"modules": false}], "react"]
     }
   }
 }
