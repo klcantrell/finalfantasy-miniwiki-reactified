@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
-import CharacterInfo from './CharacterInfo';
+import { Route } from 'react-router-dom';
+import Nav from './Nav';
+import Characters from './Characters';
 
 class App extends Component {
   render() {
     return (
       <div style={{color: "white"}}>
-        <nav>
-          <Link to="/cloud-strife">Cloud Strife</Link>
-          <Link to="/tifa-lockhart">Tifa Lockhart</Link>
-        </nav>
+        <Nav />
         <Route exact path="/" component={() => <p>Hello World</p>}/>
-        <Route path="/:characterName" render={props => <CharacterInfo {...props} />}/>
+        <Route path="/:characterName" render={props => <Characters {...props} />}/>
       </div>
     );
   }
