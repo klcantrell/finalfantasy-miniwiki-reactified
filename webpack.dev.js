@@ -14,6 +14,7 @@ module.exports = {
   devServer: {
     open: false,
     publicPath: '/',
+    contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true
   },
   module: {
@@ -41,17 +42,6 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.json/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            outputPath: 'data/',
-            publicPath: 'data/',
-            name: '[name].[ext]'
-          }
-        }
-      }
     ],
   },
   plugins: [

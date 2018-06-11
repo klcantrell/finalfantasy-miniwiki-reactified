@@ -1,8 +1,7 @@
 const path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       ImageminPlugin = require('imagemin-webpack-plugin').default,
-      MinifyPlugin = require("babel-minify-webpack-plugin"),
-      BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+      MinifyPlugin = require("babel-minify-webpack-plugin");
 
 module.exports = {
   mode: 'production',
@@ -57,17 +56,6 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.json/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            outputPath: 'data/',
-            publicPath: 'data/',
-            name: '[name].[ext]'
-          }
-        }
-      }
     ]
 	},
   plugins: [
