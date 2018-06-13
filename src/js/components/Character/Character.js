@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingSpinner from '../LoadingSpinner';
 
 const formatName = name => {
   return name.replace('-', ' ');
@@ -20,7 +21,7 @@ const Character = ({ match: { params }, charactersData, getImg }) => {
         </div>
         <div className="info__sprite">
           <h3>Original Sprite</h3>
-          <img src={imgSrc || ''} alt={sprite} />
+          {imgSrc ? <img src={imgSrc} alt={sprite} /> : <LoadingSpinner />}
         </div>
         <div className="info__details-item">
           <h3>Default Weapon</h3>
