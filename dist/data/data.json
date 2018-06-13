@@ -16,5 +16,23 @@
     "hometown": "Nibelheim",
     "weapon": "Gatling Gun",
     "sprite": "barret-sprite.png"
+  },
+  "sephiroth": {
+    "name": "Sephiroth",
+    "hometown": "Nibelheim",
+    "weapon": "Masamune",
+    "sprite": "sephiroth-sprite.png"
+  },
+  "aerith-gainsborough": {
+    "name": "Aerith Gainsboroguh",
+    "hometown": "Icicle Inn",
+    "weapon": "Guard Rod",
+    "sprite": "aerith-sprite.png"
+  },
+  "vincent-valentine": {
+    "name": "Vincent Valentine",
+    "hometown": "Unknown",
+    "weapon": "Quicksilver",
+    "sprite": "vincent-sprite.png"
   }
 }
