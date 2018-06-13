@@ -4,6 +4,9 @@ import Nav from './Nav';
 import Characters from './Characters';
 
 class App extends Component {
+  componentDidMount() {
+    document.getElementById('initial-spinner').remove();
+  }
 
   render() {
     return (
