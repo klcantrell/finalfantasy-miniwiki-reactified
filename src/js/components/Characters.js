@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Character from './Character';
+import LoadingSpinner from './LoadingSpinner';
 import { fetchData, fetchImg } from '../utils';
 
 class Characters extends Component {
@@ -40,7 +41,7 @@ class Characters extends Component {
         <Route path="/:characterName" render={props => <Character {...props} charactersData={charactersData} getImg={this.getCharacterImg} />}/> 
       );
     } else {
-      return <div className="info">'Loading...'</div>;
+      return <LoadingSpinner />;
     }
   }
 }

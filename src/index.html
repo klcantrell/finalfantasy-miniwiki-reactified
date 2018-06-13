@@ -16,6 +16,40 @@
     <meta http-equiv="X-UA-Compatible", content="ie=edge">
   </head>
   <body>
+    <style>
+      body {
+        font-family: 'Julius Sans One', serif;
+        background: black;
+      }
+      .loading-spinner {
+        margin: auto;
+        width: 64px;
+        height: 64px;
+        border: 4px rgba(0, 0, 0, .25) solid;
+        border-top: 4px rgba(186, 213, 234, 1) solid;
+        border-radius: 50%;
+        animation: spin .6s infinite linear;
+      }
+      .initial-spinner {
+        position: relative;
+        top: 30vh;
+      }
+      .k-tag {
+        position: absolute;
+        font-family: 'Julius Sans One';
+        color: white;
+        bottom: 0;
+        left: 0;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(359deg); }
+      }
+    </style>
+    <div class="loading-spinner initial-spinner" id="initial-spinner"></div>
     <main id="root"></main>
     <div class="k-tag">
       <svg width="50" height="50" viewBox="0 0 300 500">
