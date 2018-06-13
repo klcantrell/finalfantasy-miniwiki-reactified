@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+import 'core-js/modules/es6.promise'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
