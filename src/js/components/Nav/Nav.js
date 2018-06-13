@@ -6,7 +6,7 @@ import barretPic from '../../../images/barret-wallace.jpg';
 
 const Nav = () => {
   return (
-    <nav className="nav__heros">
+    <nav className="nav__heroes">
       <Link path="/cloud-strife" pic={cloudPic} />
       <Link path="/tifa-lockhart" pic={tifaPic} />
       <Link path="/barret-wallace" pic={barretPic} />
