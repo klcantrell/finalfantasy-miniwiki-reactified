@@ -3,34 +3,25 @@ import CarouselControl from './CarouselControl';
 import CarouselItem from './CarouselItem';
 
 class Carousel extends React.Component {
-  state = {
-    activeItem: 0,
-    prevActive: undefined,
-  };
   
   handleChangeActive = (i) => {
-   this.setState(prevState => (
-   	{
-    	activeItem: i,
-      prevActive: prevState.activeItem,
-    }
-   ));
+    this.props.syncPage(i);
   }
   
   itemClassFromIdx(i) {
-  	const { activeItem, prevActive } = this.state;
+    const { currentPage, prevPage } = this.props;
     const HIDDEN_RIGHT = 'carousel__item--hidden-right'
     const HIDDEN_LEFT = 'carousel__item--hidden-left';
     let skippedItemClasses = 'carousel__item--skipped';
-  	if (i === activeItem) {
+  	if (i === currentPage) {
     	return 'carousel__item--active';
     }
-    if (i === prevActive) {
-    	return i > activeItem ?
+    if (i === prevPage) {
+    	return i > currentPage ?
       	HIDDEN_RIGHT :
         HIDDEN_LEFT;
     }
-    if (i > activeItem) {
+    if (i > currentPage) {
     	skippedItemClasses += ` ${HIDDEN_RIGHT}`;
     } else {
     	skippedItemClasses += ` ${HIDDEN_LEFT}`;
@@ -39,8 +30,8 @@ class Carousel extends React.Component {
   }
   
   controlClassFromIdx(i) {
-  	const { activeItem } = this.state;
-    return i === activeItem ?
+  	const { currentPage } = this.props;
+    return i === currentPage ?
     	'carousel__control--active' :
       '';
   }
