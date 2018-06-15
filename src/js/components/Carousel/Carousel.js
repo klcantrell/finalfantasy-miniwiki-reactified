@@ -47,17 +47,17 @@ class Carousel extends React.Component {
             >
           	  {item}  
           	</CarouselItem> 
-         ))}
-        </div>
-        <div className="carousel__controls">
-          {items.map((item, idx) => (
-          	<CarouselControl
-              key={idx}
-              itemId={idx}
-              handleClick={() => updatePage(idx)}
-              classes={this.controlClassFromIdx(idx)}
-            />
           ))}
+          <div className="carousel__controls">
+            {items.map((item, idx) => (
+              <CarouselControl
+                key={idx}
+                itemId={idx}
+                handleClick={() => updatePage(idx)}
+                classes={this.controlClassFromIdx(idx)}
+              />
+            ))}
+          </div>
         </div>
     	</div>
     )

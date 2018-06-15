@@ -1,5 +1,4 @@
 .carousel {
-  padding: 5px;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -10,6 +9,9 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
   overflow: hidden;
 }
 
@@ -37,7 +39,6 @@
 
 .carousel__controls {
   margin: auto;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
@@ -53,8 +54,8 @@
 }
 
 .carousel__control {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background: black;
   border: 1px solid white;
   border-radius: 50%;

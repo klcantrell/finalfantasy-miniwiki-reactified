@@ -42,6 +42,12 @@
 	100% { opacity: 1; }
 }
 
+@media screen and (max-width: 525px) {
+	.nav__heroes {
+		flex-flow: column;
+	}
+}
+
 @media screen and (min-width: 750px) {
 	.nav__hero-container {
 		width: 240px;
