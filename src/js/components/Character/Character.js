@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { getSprite, updatePage } from '../../actionCreators';
 import LoadingSpinner from '../LoadingSpinner';
 
 const formatName = name => {
@@ -7,15 +10,15 @@ const formatName = name => {
 
 class Character extends Component {
   componentDidMount() {
-    const { syncPage, charactersData, match: { params: { characterName } } } = this.props;
-    syncPage(charactersData[characterName].page);
+    const { updatePage, charactersData, match: { params: { characterName } } } = this.props;
+    updatePage(charactersData[characterName].page);
   }
 
   render() {
-    const { match: { params: { characterName } }, charactersData, getSpriteImg } = this.props;
-    const { hometown, sprite, weapon, imgSrc } = charactersData[characterName];
-    if (!imgSrc) {
-      getSpriteImg(characterName, require(`../../../images/${sprite}`).src);
+    const { match: { params: { characterName } }, charactersData, getSprite } = this.props;
+    const { hometown, sprite, weapon, spriteSrc } = charactersData[characterName];
+    if (!spriteSrc) {
+      getSprite(characterName, require(`../../../images/${sprite}`).src);
     }
     return (
       <div className="info">
@@ -27,7 +30,7 @@ class Character extends Component {
           </div>
           <div className="info__sprite">
             <h3>Original Sprite</h3>
-            {imgSrc ? <img src={imgSrc} alt={sprite} /> : <LoadingSpinner />}
+            {spriteSrc ? <img src={spriteSrc} alt={sprite} /> : <LoadingSpinner />}
           </div>
           <div className="info__details-item">
             <h3>Default Weapon</h3>
@@ -39,4 +42,10 @@ class Character extends Component {
   }
 }
 
-export default Character;
+const mapStateToProps = ({charactersData}) => {
+  return {
+    charactersData,
+  };
+};
+
+export default withRouter(connect(mapStateToProps, { getSprite, updatePage })(Character));

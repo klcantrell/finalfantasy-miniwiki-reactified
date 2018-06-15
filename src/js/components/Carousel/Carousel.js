@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updatePage } from '../../actionCreators';
 import CarouselControl from './CarouselControl';
 import CarouselItem from './CarouselItem';
 
 class Carousel extends React.Component {
   
-  handleChangeActive = (i) => {
-    this.props.syncPage(i);
-  }
-  
   itemClassFromIdx(i) {
-    const { currentPage, prevPage } = this.props;
+    const { activePage, prevActive } = this.props;
     const HIDDEN_RIGHT = 'carousel__item--hidden-right'
     const HIDDEN_LEFT = 'carousel__item--hidden-left';
     let skippedItemClasses = 'carousel__item--skipped';
-  	if (i === currentPage) {
+  	if (i === activePage) {
     	return 'carousel__item--active';
     }
-    if (i === prevPage) {
-    	return i > currentPage ?
+    if (i === prevActive) {
+    	return i > activePage ?
       	HIDDEN_RIGHT :
         HIDDEN_LEFT;
     }
-    if (i > currentPage) {
+    if (i > activePage) {
     	skippedItemClasses += ` ${HIDDEN_RIGHT}`;
     } else {
     	skippedItemClasses += ` ${HIDDEN_LEFT}`;
@@ -30,14 +29,14 @@ class Carousel extends React.Component {
   }
   
   controlClassFromIdx(i) {
-  	const { currentPage } = this.props;
-    return i === currentPage ?
+  	const { activePage } = this.props;
+    return i === activePage ?
     	'carousel__control--active' :
       '';
   }
   
   render() {
-  	const { children: items } = this.props;
+  	const { children: items, updatePage } = this.props;
   	return (
     	<div className="carousel">
         <div className="carousel__items">
@@ -55,7 +54,7 @@ class Carousel extends React.Component {
           	<CarouselControl
               key={idx}
               itemId={idx}
-              handleClick={this.handleChangeActive}
+              handleClick={() => updatePage(idx)}
               classes={this.controlClassFromIdx(idx)}
             />
           ))}
@@ -65,4 +64,11 @@ class Carousel extends React.Component {
   }
 }
 
-export default Carousel;
+const mapStateToProps = ({activePage, prevActive}) => {
+  return {
+    activePage,
+    prevActive,
+  };
+}
+
+export default withRouter(connect(mapStateToProps, { updatePage })(Carousel));
