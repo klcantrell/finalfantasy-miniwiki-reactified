@@ -2,15 +2,20 @@ import {
   GET_CHARACTER_DATA, 
   GET_CHARACTER_SPRITE, 
   UPDATE_PAGE,
+  SYNC_APP,
 } from './actionCreators';
 
 import { paginateCharacterData } from './helpers';
 
 const initialState = {
+  currentGame: 'ff7',
   charactersData: undefined,
   activePage: 0,
   prevActive: undefined,
+  urlOk: undefined,
 };
+
+const EXPECTED_GAMES = ['ff7', 'ff8'];
 
 const PAGINATION_SCHEME = {
   'cloud-strife': 0,
@@ -29,10 +34,17 @@ const characterApp = (state=initialState, action) => {
       const characterData = {...state.charactersData[action.character]};
       characterData.spriteSrc = action.cacheUrl;
       const charactersData = { ...state.charactersData, [action.character]: characterData };
-      return { ...state, charactersData };
+      return { ...state, charactersData, urlOk: true };
     case UPDATE_PAGE:
-      const { activePage: oldActive } = state;
-      return { ...state, activePage: action.pageNum, prevActive: oldActive };
+      return { ...state, activePage: action.pageNum, prevActive: state.activePage, urlOk: true };
+    case SYNC_APP:
+      const [ gameName, characterName ] = action.urlFragment.split('/').slice(1);
+      return { 
+        ...state,
+        urlOk: gameName ? EXPECTED_GAMES.includes(gameName) : undefined,
+        currentGame: EXPECTED_GAMES.includes(gameName) ? gameName : state.currentGame, 
+        activePage: PAGINATION_SCHEME[characterName] || state.activePage, 
+      };
     default:
       return state;
   }

@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Link from './Link';
 import cloudPic from '../../../images/cloud-strife.jpg';
 import tifaPic from '../../../images/tifa-lockhart.jpg';
@@ -16,14 +18,20 @@ const picMapping = {
   'vincent-valentine': vincentPic,
 }
 
-const NavFragment = ({characters}) => {
+const NavFragment = ({characters, currentGame}) => {
   return (
     <div className="nav__heroes">
       {characters.map((c,i) => (
-        <Link key={i} path={`/${c}`} pic={picMapping[c]} />
+        <Link key={i} path={`/${currentGame}/${c}`} pic={picMapping[c]} />
       ))}
     </div>
   );
 };
 
-export default NavFragment;
+const mapStateToProps = ({currentGame}) => {
+  return {
+    currentGame,
+  };
+}
+
+export default withRouter(connect(mapStateToProps)(NavFragment));
