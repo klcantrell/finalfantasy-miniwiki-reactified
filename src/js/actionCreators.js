@@ -3,6 +3,7 @@ import { fetchData, fetchImg } from './helpers';
 const GET_CHARACTER_DATA = "GET_CHARACTER_DATA";
 const GET_CHARACTER_SPRITE = "GET_CHARACTER_SPRITE";
 const UPDATE_PAGE = "UPDATE_PAGE";
+const SYNC_APP = "SYNC_PAGE"
 
 function handleCharacterData(data) {
   return {
@@ -21,7 +22,7 @@ function handleSprite(character, cacheUrl) {
 
 function getCharacterData() {
   return dispatch => {
-    return fetchData('data/data.json')
+    return fetchData('/data/data.json')
       .then(res => dispatch(handleCharacterData(res)));
   }
 }
@@ -43,11 +44,20 @@ function updatePage(pageNum) {
   };
 }
 
+function syncAppFromUrl(urlFragment) {
+  return {
+    type: SYNC_APP,
+    urlFragment,
+  };
+}
+
 export { 
   GET_CHARACTER_DATA, 
   GET_CHARACTER_SPRITE, 
   UPDATE_PAGE, 
+  SYNC_APP,
   getCharacterData, 
   getSprite, 
-  updatePage 
+  updatePage,
+  syncAppFromUrl,
 };
