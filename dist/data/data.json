@@ -1,38 +1,78 @@
 {
-  "cloud-strife": {
-    "name": "Cloud Strife",
-    "hometown": "Nibelheim",
-    "weapon": "Buster Sword",
-    "sprite": "cloud-sprite.png"
+  "ff7": {
+    "cloud-strife": {
+      "name": "Cloud Strife",
+      "hometown": "Nibelheim",
+      "weapon": "Buster Sword",
+      "sprite": "cloud-sprite.png"
+    },
+    "tifa-lockhart": {
+      "name": "Tifa Lockhart",
+      "hometown": "Nibelheim",
+      "weapon": "Leather Gloves",
+      "sprite": "tifa-sprite.png"
+    },
+    "barret-wallace": {
+      "name": "Barret Wallace",
+      "hometown": "Nibelheim",
+      "weapon": "Gatling Gun",
+      "sprite": "barret-sprite.png"
+    },
+    "sephiroth": {
+      "name": "Sephiroth",
+      "hometown": "Nibelheim",
+      "weapon": "Masamune",
+      "sprite": "sephiroth-sprite.png"
+    },
+    "aerith-gainsborough": {
+      "name": "Aerith Gainsboroguh",
+      "hometown": "Icicle Inn",
+      "weapon": "Guard Rod",
+      "sprite": "aerith-sprite.png"
+    },
+    "vincent-valentine": {
+      "name": "Vincent Valentine",
+      "hometown": "Unknown",
+      "weapon": "Quicksilver",
+      "sprite": "vincent-sprite.png"
+    }
   },
-  "tifa-lockhart": {
-    "name": "Tifa Lockhart",
-    "hometown": "Nibelheim",
-    "weapon": "Leather Gloves",
-    "sprite": "tifa-sprite.png"
-  },
-  "barret-wallace": {
-    "name": "Barret Wallace",
-    "hometown": "Nibelheim",
-    "weapon": "Gatling Gun",
-    "sprite": "barret-sprite.png"
-  },
-  "sephiroth": {
-    "name": "Sephiroth",
-    "hometown": "Nibelheim",
-    "weapon": "Masamune",
-    "sprite": "sephiroth-sprite.png"
-  },
-  "aerith-gainsborough": {
-    "name": "Aerith Gainsboroguh",
-    "hometown": "Icicle Inn",
-    "weapon": "Guard Rod",
-    "sprite": "aerith-sprite.png"
-  },
-  "vincent-valentine": {
-    "name": "Vincent Valentine",
-    "hometown": "Unknown",
-    "weapon": "Quicksilver",
-    "sprite": "vincent-sprite.png"
+  "ff8": {
+    "squall-leonhart": {
+      "name": "Squall Leonhart",
+      "hometown": "Balamb",
+      "weapon": "Gunblade",
+      "sprite": "squall-sprite.png"
+    },
+    "rinoa-heartilly": {
+      "name": "Rinoa Heartilly",
+      "hometown": "Deling City",
+      "weapon": "Blaster Edge",
+      "sprite": "rinoa-sprite.png"
+    },
+    "zell-dincht": {
+      "name": "Zell Dincht",
+      "hometown": "Balamb",
+      "weapon": "Gloves",
+      "sprite": "zell-sprite.png"
+    },
+    "quistis-trepe": {
+      "name": "Quistis Trepe",
+      "hometown": "Balamb",
+      "weapon": "Whip",
+      "sprite": "quistis-sprite.png"
+    },
+    "seifer-almasy": {
+      "name": "Seifer Almasy",
+      "hometown": "Balamb",
+      "weapon": "Gunblade",
+      "sprite": "seifer-sprite.png"
+    },
+    "selphie-tilmitt": {
+      "name": "Selphie Tilmitt",
+      "hometown": "Balamb",
+      "weapon": "Nunchaku",
+      "sprite": "selphie-sprite.png"
+    }
   }
 }

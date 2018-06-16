@@ -7,12 +7,20 @@ import NavFragment from './NavFragment';
 import Character from './Character';
 import LoadingSpinner from './LoadingSpinner';
 
+const getCharacterListOnPage = (charactersData, pageNum) => {
+  const characterKeys = Object.keys(charactersData);
+
+  return characterKeys
+    .filter(c => charactersData[c].page === pageNum)
+    .reduce((names, c) => [...names, c], []);
+};
+
 class App extends Component {
   componentDidMount() {
     document.getElementById('initial-spinner').remove();
     const { getCharacterData, syncAppFromUrl, location: { pathname } } = this.props;
-    getCharacterData();
     syncAppFromUrl(pathname);
+    getCharacterData();
   }
 
   render() {
@@ -22,10 +30,10 @@ class App extends Component {
         {activePage !== undefined ?
           <Carousel>
             <NavFragment
-              characters={['cloud-strife', 'tifa-lockhart', 'barret-wallace']} 
+              characters={charactersData ? getCharacterListOnPage(charactersData, 0) : []} 
             />
             <NavFragment
-              characters={['aerith-gainsborough', 'sephiroth', 'vincent-valentine']} 
+              characters={charactersData ? getCharacterListOnPage(charactersData, 1) : []} 
             />
           </Carousel> :
           null

@@ -21,7 +21,7 @@ class Character extends Component {
 
     const { hometown, sprite, weapon, spriteSrc } = charactersData[characterName];
     if (!spriteSrc) {
-      getSprite(characterName, require(`@/images/${sprite}`).src);
+      getSprite(characterName, require(`@/images/${currentGame}/${sprite}`).src);
     }
     return (
       <div className="info">
