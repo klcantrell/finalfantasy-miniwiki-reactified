@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Link from './Link';
+import { fetchImg } from '../../helpers';
 import cloudPic from '@/images/ff7/cloud-strife.jpg';
 import tifaPic from '@/images/ff7/tifa-lockhart.jpg';
 import barretPic from '@/images/ff7/barret-wallace.jpg';

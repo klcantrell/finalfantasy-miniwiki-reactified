@@ -14,12 +14,12 @@ class Character extends Component {
   }
 
   render() {
-    const { match: { params: { characterName } }, charactersData, getSprite, currentGame } = this.props;
-    if (!charactersData[characterName]) {
+    const { match: { params: { characterName } }, allGameData, getSprite, currentGame } = this.props;
+    if (!allGameData[currentGame][characterName]) {
       return <Redirect to={`/${currentGame}`} />
     }
 
-    const { hometown, sprite, weapon, spriteSrc } = charactersData[characterName];
+    const { hometown, sprite, weapon, spriteSrc } = allGameData[currentGame][characterName];
     if (!spriteSrc) {
       getSprite(characterName, require(`@/images/${currentGame}/${sprite}`).src);
     }
@@ -45,9 +45,9 @@ class Character extends Component {
   }
 }
 
-const mapStateToProps = ({charactersData, currentGame}) => {
+const mapStateToProps = ({allGameData, currentGame}) => {
   return {
-    charactersData,
+    allGameData,
     currentGame,
   };
 };

@@ -1,9 +1,11 @@
-import { fetchData, fetchImg } from './helpers';
+import { fetchData, fetchImg, paginateCharacterData } from './helpers';
+import { PAGINATION_SCHEME } from './rootReducer';
 
 const GET_CHARACTER_DATA = "GET_CHARACTER_DATA";
 const GET_CHARACTER_SPRITE = "GET_CHARACTER_SPRITE";
 const UPDATE_PAGE = "UPDATE_PAGE";
-const SYNC_APP = "SYNC_PAGE"
+const UPDATE_CURRENT_GAME = "UPDATE_CURRENT_GAME";
+const SYNC_APP = "SYNC_PAGE";
 
 function handleCharacterData(data) {
   return {
@@ -23,6 +25,13 @@ function handleSprite(character, cacheUrl) {
 function getCharacterData() {
   return dispatch => {
     return fetchData('/data/data.json')
+      .then(res => {
+        return Object.keys(res)
+          .reduce((gameData, game) => {
+            gameData[game] = paginateCharacterData(res[game], PAGINATION_SCHEME[game]);
+            return gameData;
+          }, {})
+      })
       .then(res => dispatch(handleCharacterData(res)));
   }
 }
@@ -44,6 +53,13 @@ function updatePage(pageNum) {
   };
 }
 
+function updateGame(gameName) {
+  return {
+    type: UPDATE_CURRENT_GAME,
+    gameName,
+  };
+}
+
 function syncAppFromUrl(urlFragment) {
   return {
     type: SYNC_APP,
@@ -54,10 +70,12 @@ function syncAppFromUrl(urlFragment) {
 export { 
   GET_CHARACTER_DATA, 
   GET_CHARACTER_SPRITE, 
-  UPDATE_PAGE, 
+  UPDATE_PAGE,
+  UPDATE_CURRENT_GAME,
   SYNC_APP,
   getCharacterData, 
-  getSprite, 
+  getSprite,
   updatePage,
+  updateGame,
   syncAppFromUrl,
 };
