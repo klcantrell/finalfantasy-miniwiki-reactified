@@ -9,7 +9,13 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
+    publicPath: '/',
     filename: '[name].bundle.js',
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve('src'),
+    }
   },
   devServer: {
     open: false,
@@ -38,7 +44,7 @@ module.exports = {
             sizes: [240, 150],
             placeholder: true,
             placeholderSize: 50,
-            name: 'images/[name]-[width].[ext]'
+            name: 'images/[name]-[width].[ext]',
           }
         }
       },
