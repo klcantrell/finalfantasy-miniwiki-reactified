@@ -2,6 +2,8 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  margin-top: -30px;
+  margin-bottom: -50px;
 }
 
 .carousel__items {
@@ -10,9 +12,9 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 20px;
   overflow: hidden;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .carousel__item {
@@ -64,4 +66,10 @@
 
 .carousel__control--active {
   background: white;
+}
+
+@media screen and (max-width: 525px) {
+  .carousel {
+    margin-top: -60px;
+  }
 }

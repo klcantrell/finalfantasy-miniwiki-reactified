@@ -1,4 +1,4 @@
-.info__header {
+.instructions {
 	font-size: 2em;
 	text-transform: uppercase;
 	text-align: center;
@@ -11,10 +11,10 @@
     flex-flow: column;
   }
 
-  .info__header {
+  .instructions {
     order: -1;
     font-size: 1.25rem;
     margin-top: 22px;
-    margin-bottom: -30px;
+    margin-bottom: 0;
   }
 }

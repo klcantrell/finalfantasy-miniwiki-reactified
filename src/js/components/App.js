@@ -47,7 +47,7 @@ class App extends Component {
           null
         }
         <Switch>
-          <Route exact path="/:gameName" component={() => <h3 className="info__header">Select a character</h3>}/>
+          <Route exact path="/:gameName" component={() => <h3 className="instructions">Select a character</h3>}/>
           <Redirect exact from="/" to={`/${currentGame}`} />
         </Switch>
         {allGameData ? 
