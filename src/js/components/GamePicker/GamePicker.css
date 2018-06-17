@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.game-picker-container:active {
+.game-picker-container:hover {
   background-color: blue;
 }
 
@@ -26,6 +26,7 @@
 
 @media screen and (max-width: 540px) {
   .game-picker-container {
+    order: -2;
     margin: auto;
   }
 }

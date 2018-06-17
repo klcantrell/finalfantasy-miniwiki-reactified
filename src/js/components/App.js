@@ -7,6 +7,7 @@ import Carousel from './Carousel';
 import NavFragment from './NavFragment';
 import Character from './Character';
 import LoadingSpinner from './LoadingSpinner';
+import './App.css';
 
 const getCharacterListOnPage = (charactersData, pageNum) => {
   return Object.keys(charactersData)
