@@ -10,6 +10,7 @@
 	width: 150px;
 	height: 120px;
 	position: relative;
+	z-index: 1;
 	overflow: hidden;
 	margin: 5px;
 	border-radius: 10px;
