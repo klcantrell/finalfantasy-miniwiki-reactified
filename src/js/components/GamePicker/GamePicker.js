@@ -11,11 +11,13 @@ const GamePicker = ({currentGame, expectedGames, updateGame, history}) => {
   };
 
   return (
-    <select value={currentGame} onChange={handleChange}>
-      {expectedGames.map((g, i) => (
-        <option key={i} value={g}>{g}</option>
-      ))}
-    </select>
+    <div className="game-picker-container">
+      <select className="game-picker" value={currentGame} onChange={handleChange}>
+        {expectedGames.map((g, i) => (
+          <option key={i} value={g}>{g}</option>
+        ))}
+      </select>
+    </div>
   );
 };
 

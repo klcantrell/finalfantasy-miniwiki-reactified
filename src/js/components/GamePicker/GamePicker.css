@@ -1,0 +1,31 @@
+.game-picker-container {
+  background-color: rgba(138,178,209,0.78);
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJTUUH4gYRASw2B/RBcwAAAf1JREFUSEvt1sGK2kAcBvDPSbKaaJSECqZGCHjxoJDAelv6FC30NXore+qph9IXCPTiO7RLYS/Bg1hoeisWikIZqh6KbDSDxVLTS1O2W+04aWkv/kAS5PvPx0wEAwAj/AcEgMQL7dGoVCoPqtXqPV5wF8IL7KPrumtZ1hPHce4DKPLyN8m8wD6r1aovUXrxpVS6AMB4+ZsyFwOIy4wtNoy94wV3yXzUf+pYfAjp+8f+CNQocHrtu4OJ/rgsz/Mettvt28vlshZF0Vk+nz+1LOtsMpnE/X7/KYC3vEUA8eITwzDutFotlxACWZaxXq9vSZJ0d7FYfALwjLdASrT4A6X05Xg8dmezGebz+RUhpGTbtjydTp8DGPIWSAk/Y9M0581mE4ZhgDH2GYBcKBQgSdIVgK+8+ZRwMQBomgZFUaBpWilJEl58J9GjBiEEqqpC13WUy+VS+qxFCU+oqgrTNNFoNBDHMQAgy64zHXUul/txTe9FZSr+G47F/8yx+GCKovAivyVcvN1uh3EcD2zbRq1W48X3Ei4OguBVEASPGWMD13VRr9d5IzsJFwNAr9d7MRwOH0VR9LrT6cCyLN7ILzIVA4Dv+5dhGJ5vNpuB53lwHIc38hPhP4nrfN+/TJLkpNvtnovuWgLwBgDlBfcJw/B9sViko9FoRik9+OX+G6VGjd50OphpAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: 170px 0;
+  height: 29px;
+  width: 200px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.game-picker-container:hover, .game-picker-container:active {
+  background-color: blue;
+}
+
+.game-picker {
+  font-family: 'Julius Sans One';
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 100%;
+  width: 220px;
+  background: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 540px) {
+  .game-picker-container {
+    margin: auto;
+  }
+}

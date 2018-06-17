@@ -48,9 +48,13 @@
         from { transform: rotate(0deg); }
         to { transform: rotate(359deg); }
       }
+      @media screen and (max-width: 540px) {
+        .k-tag {
+          position: static;
+          justify-content: center;
+        }
+      }
     </style>
-    <div class="loading-spinner initial-spinner" id="initial-spinner"></div>
-    <main id="root"></main>
     <div class="k-tag">
       <svg width="50" height="50" viewBox="0 0 300 500">
         <path
@@ -60,5 +64,7 @@
       </svg>
       <h5>Final Fantasy MiniWiki Reactified</h5>
     </div>
+    <div class="loading-spinner initial-spinner" id="initial-spinner"></div>
+    <main id="root"></main>
   </body>
 </html>
