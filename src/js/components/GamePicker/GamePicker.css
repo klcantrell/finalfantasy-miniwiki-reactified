@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.game-picker-container:hover, .game-picker-container:active {
+.game-picker-container:active {
   background-color: blue;
 }
 
