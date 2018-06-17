@@ -1,7 +1,8 @@
 const path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
       ImageminPlugin = require('imagemin-webpack-plugin').default,
-      MinifyPlugin = require("babel-minify-webpack-plugin");
+      MinifyPlugin = require("babel-minify-webpack-plugin"),
+      MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'production',
@@ -9,10 +10,16 @@ module.exports = {
 		app: path.join(__dirname, 'src/js/index.js')
 	},
 	output: {
-		path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/',
     // publicPath: 'https://s3.us-east-2.amazonaws.com/kals-portfolio-assets/ffminiwiki/',
 		filename: "[name].bundle.js"
-	},
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve('src'),
+    }
+  },
 	module: {
     rules: [
 			{
@@ -25,15 +32,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          },
-          {
-            loader: 'extract-loader'
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -50,14 +49,17 @@ module.exports = {
           loader: 'responsive-loader',
           options: {
             sizes: [240, 150],
-            placeholder: true,
-            placeholderSize: 50,
+            // placeholder: true,
+            // placeholderSize: 50,
             name: 'images/[name]-[width].[ext]'
           }
         }
       },
     ]
-	},
+  },
+  optimization: {
+    minimizer: [new MinifyPlugin({}, {})],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join('src/index.html'),
@@ -75,5 +77,8 @@ module.exports = {
     new MinifyPlugin({}, {
       exclude: /node_modules/
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    })
   ]
 }
