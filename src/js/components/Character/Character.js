@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import { getSprite } from '../../actionCreators';
 import LoadingSpinner from '../LoadingSpinner';
+import smoothscroll from 'smoothscroll';
 
 const formatName = name => {
   return name.replace('-', ' ');
@@ -11,6 +12,13 @@ const formatName = name => {
 class Character extends Component {
   componentDidMount() {
     const { charactersData, match: { params: { characterName } } } = this.props;
+    this.domEl && smoothscroll(this.domEl);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.characterName !== this.props.match.params.characterName) {
+      this.domEl && smoothscroll(this.domEl);
+    }
   }
 
   render() {
@@ -24,7 +32,7 @@ class Character extends Component {
       getSprite(characterName, require(`@/images/${currentGame}/${sprite}`).src);
     }
     return (
-      <div className="info">
+      <div className="info" ref={node => this.domEl = node}>
         <h1 className="info__header">{formatName(characterName)}</h1>
         <div className="info__details">
           <div className="info__details-item">
