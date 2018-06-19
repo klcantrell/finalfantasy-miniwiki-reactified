@@ -15,9 +15,13 @@ const getCharacterListOnPage = (charactersData, pageNum) => {
     .reduce((names, c) => [...names, c], []);
 };
 
+const removeDomNode = node => {
+  node.parentNode && node.parentNode.removeChild(node);
+};
+
 class App extends Component {
   componentDidMount() {
-    document.getElementById('initial-spinner').remove();
+    removeDomNode(document.getElementById('initial-spinner'));
     const { getCharacterData, syncAppFromUrl, location: { pathname } } = this.props;
     syncAppFromUrl(pathname);
     getCharacterData();
