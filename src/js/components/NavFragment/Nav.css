@@ -2,7 +2,8 @@
   display: flex;
   flex-flow: row wrap;
 	justify-content: center;
-  overflow-y: visible;
+	overflow-y: visible;
+	-ms-grid-column-align: center;
 }
 
 .nav__hero-container {
