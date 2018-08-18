@@ -16,3 +16,6 @@ Tech Highlights:
 * Used **Redux** to manage the app's state such as page number and selected game
 * Used **Redux-Thunk** to allow asynchronous actions like AJAX calls inside of Redux
 * Used **React Router** to bind views with routes based on the selected game and character
+
+#### Visit the site!
+#### https://ff-miniwiki.surge.sh/
